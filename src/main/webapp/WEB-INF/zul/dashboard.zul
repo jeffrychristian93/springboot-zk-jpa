@@ -1,0 +1,22 @@
+<?page id="index" title="Dashboard"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window width="100%" position="center" style="background-color:#323B55;" apply="com.jeffrychristian.app.controller.ui.common.DashboardComposer">
+        <h:form id="f" name="f" action="/logout" method="POST" xmlns:h="native">
+            <groupbox>
+                <grid style="border:none;">
+                    <rows>
+                        <row spans="2">
+                            <div align="center">
+                                <h:input type="submit" value="Log out" style="width: 80px;"
+                                         onclick="this.disabled=true;this.form.submit();"/>
+                            </div>
+                        </row>
+                    </rows>
+                </grid>
+            </groupbox>
+            <h:input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        </h:form>
+    </window>
+</zk>

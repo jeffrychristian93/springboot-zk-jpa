@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk>
+	<preference>
+		<name>org.zkoss.zk.ui.WebApp.name</name>
+		<value>zk boot</value>
+	</preference>
+
+	<library-property>
+		<name>org.zkoss.zkmax.tablet.ui.disabled</name>
+		<value>true</value>
+	</library-property>
+	
+	<library-property>
+		<name>org.zkoss.util.label.web.charset</name>
+		<value>ISO-8859-1</value>
+	</library-property>
+	<library-property>
+		<name>org.zkoss.util.label.classpath.charset</name>
+		<value>ISO-8859-1</value>
+	</library-property>
+    <library-property>
+        <name>org.zkoss.web.preferred.locale</name>
+        <value>us</value>
+    </library-property>
+
+	<library-property>
+		<name>org.zkoss.theme.preferred</name>
+		<value>sapphire</value>
+	</library-property>
+
+	<client-config>
+		<debug-js>false</debug-js>
+	</client-config>
+	
+	<listener>
+		<description>ThreadLocal Synchronization Listener</description>
+		<listener-class>org.zkoss.zkplus.util.ThreadLocalListener</listener-class>
+	</listener>
+	
+	<system-config>
+		<label-location>/WEB-INF/labels.properties</label-location>
+		<label-location>/WEB-INF/zul.properties</label-location>
+		<ui-factory-class>org.zkoss.zk.ui.http.SerializableUiFactory</ui-factory-class>
+	</system-config>
+
+	<session-config>
+		<device-type>ajax</device-type>
+		<timeout-uri>login?expired</timeout-uri>
+		<timeout-message>Session timeout. Please reload.</timeout-message>
+	</session-config>
+</zk>

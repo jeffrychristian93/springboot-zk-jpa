@@ -1,0 +1,45 @@
+<zk>
+    <window title="${labels.girointerest.title.popup}" border="normal" mode="modal" width="50%"
+            position="center"
+            apply="com.jeffrychristian.app.controller.ui.maintenance.popup.PopupAddMovieGenreComposer" >
+        <!--<grid>-->
+            <!--<columns>-->
+                <!--<column width="20%" />-->
+                <!--<column />-->
+            <!--</columns>-->
+            <!--<rows>-->
+                <!--<row>-->
+                    <!--<signLabel value=""/>-->
+                    <!--<div>-->
+                        <!--<textbox id="txtId" maxlength="30" width="25%"/>-->
+                        <!--<label id="lblErrId" style="color:red" />-->
+                    <!--</div>-->
+                <!--</row>-->
+            <!--</rows>-->
+        <!--</grid>-->
+        <caption label="Movie Genres" />
+        <grid id="gridGenres" sizedByContent="false" span="true" mold="paging" pageSize="10" emptyMessage="No data">
+            <columns>
+                <column label="No" width="35px"/>
+                <!--<column label="Code"/>-->
+                <column label="Genre"/>
+                <column label="Action"/>
+            </columns>
+            <rows>
+                <template name="model">
+                    <row>
+                        <label value="${forEachStatus.index+1}"/>
+                        <!--<label value="${each.code}"/>-->
+                        <label value="${each.value}"/>
+                        <button label="Select" forward="gridGenres.onSelectz(${each})"/>
+                    </row>
+                </template>
+            </rows>
+        </grid>
+        <div align="center">
+            <separator />
+            <button id="btnClose" label="Close" />
+            <separator />
+        </div>
+    </window>
+</zk>

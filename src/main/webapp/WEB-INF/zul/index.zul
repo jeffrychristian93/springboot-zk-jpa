@@ -1,0 +1,11 @@
+<?page id="index" title="Home"?>
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <borderlayout>
+        <center border="none">
+            <window width="400px" position="center" mode="overlapped" style="background-color:#323B55;"
+                    apply="com.jeffrychristian.app.controller.ui.common.IndexComposer">
+                <label>Go to localhost:port/app then login..~</label>
+            </window>
+        </center>
+    </borderlayout>
+</zk>

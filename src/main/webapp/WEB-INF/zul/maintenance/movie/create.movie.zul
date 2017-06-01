@@ -1,0 +1,214 @@
+<?page id="index" title="Dashboard"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window border="none" apply="com.jeffrychristian.app.controller.ui.maintenance.movie.CreateMovieComposer">
+        <groupbox mold="3d" closable="false">
+            <caption label="Create Movie"/>
+            <grid>
+                <columns visible="false">
+                    <column width="20%"/>
+                    <column width="80%"/>
+                </columns>
+                <rows>
+                    <row>
+                        <div>
+                            <label value="Title"/>
+                            <label value="*" style="color:red"/>
+                        </div>
+                        <textbox id="tbTitle" width="25%"/>
+                    </row>
+                    <row>
+                        <div>
+                            <label value="Rating"/>
+                            <label value="*" style="color:red"/>
+                        </div>
+                        <doublebox id="dbRating" width="25%" value="0"/>
+                    </row>
+                    <row>
+                        <div>
+                            <label value="Release Year"/>
+                            <label value="*" style="color:red"/>
+                        </div>
+                        <combobox id="cbReleaseYear" placeholder="-- Please Select --" readonly="true">
+                            <template name="model">
+                                <comboitem label="${each}"/>
+                            </template>
+                        </combobox>
+                    </row>
+                    <row>
+                        <div>
+                            <label value="Release Date"/>
+                            <label value="*" style="color:red"/>
+                        </div>
+                        <datebox id="tbReleaseDate" width="25%" readonly="true"/>
+                    </row>
+                    <row>
+                        <div>
+                            <label value="Synopsis"/>
+                            <label value="*" style="color:red"/>
+                        </div>
+                        <textbox id="tbSynopsis" width="25%"/>
+                    </row>
+                    <row>
+                        <div>
+                            <label value="Production"/>
+                            <label value="*" style="color:red"/>
+                        </div>
+                        <textbox id="tbProduction" width="25%"/>
+                    </row>
+                    <row>
+                        <div>
+                            <label value="Trailer"/>
+                            <label value="*" style="color:red"/>
+                        </div>
+                        <textbox id="tbTrailer" width="25%"/>
+                    </row>
+                    <row>
+                        <div>
+                            <label value="Filter"/>
+                            <label value="*" style="color:red"/>
+                        </div>
+                        <combobox id="cbFilter" placeholder="-- Please Select --" readonly="true" width="240px">
+                            <template name="model">
+                                <comboitem label="${each} / ${each.value}"/>
+                            </template>
+                        </combobox>
+                    </row>
+                    <row>
+                        <div>
+                            <label value="Minute"/>
+                            <label value="*" style="color:red"/>
+                        </div>
+                        <intbox id="ibMinute" width="25%"/>
+                    </row>
+                    <row>
+                        <div>
+                            <label value="Writers"/>
+                            <label value="*" style="color:red"/>
+                        </div>
+                        <textbox id="tbWriters" width="25%"/>
+                    </row>
+                    <row>
+                        <div>
+                            <label value="Directors"/>
+                            <label value="*" style="color:red"/>
+                        </div>
+                        <textbox id="tbDirectors" width="25%"/>
+                    </row>
+                    <row>
+                        <div>
+                            <label value="Actors"/>
+                            <label value="*" style="color:red"/>
+                        </div>
+                        <textbox id="tbActors" width="25%"/>
+                    </row>
+                    <row>
+                        <div>
+                            <label value="Producers"/>
+                            <label value="*" style="color:red"/>
+                        </div>
+                        <textbox id="tbProducers" width="25%"/>
+                    </row>
+                    <row>
+                        <div>
+                            <label value="Cover"/>
+                            <label value="*" style="color:red"/>
+                        </div>
+                        <vlayout>
+                            <hbox>
+                                <button id="btnBrowseCover" upload="true,maxsize=-1" label="Browse"/>
+                                <label id="lblFileCoverName" />
+                            </hbox>
+                        </vlayout>
+                    </row>
+                    <row>
+                        <div>
+                            <label value="Country"/>
+                            <label value="*" style="color:red"/>
+                        </div>
+                        <combobox id="cbCountry" placeholder="-- Please Select --" readonly="true">
+                            <template name="model">
+                                <comboitem label="${each.name}"/>
+                            </template>
+                        </combobox>
+                    </row>
+                    <row>
+                        <div>
+                            <label value="Subtitle"/>
+                            <label value="*" style="color:red"/>
+                        </div>
+                        <combobox id="cbSubtitle" placeholder="-- Please Select --" readonly="true">
+                            <template name="model">
+                                <comboitem label="${each.value}"/>
+                            </template>
+                        </combobox>
+                    </row>
+                </rows>
+            </grid>
+        </groupbox>
+        <separator/>
+        <groupbox mold="3d" closable="true">
+            <caption label="Genres"/>
+            <grid id="gridGenres" sizedByContent="false" span="true" mold="paging" pageSize="10" emptyMessage="No data">
+                <columns>
+                    <column label="No" width="35px"/>
+                    <column label="Genre"/>
+                    <column label="Action"/>
+                </columns>
+                <rows>
+                    <template name="model">
+                        <row>
+                            <label value="${forEachStatus.index+1}"/>
+                            <label value="${each.name}"/>
+                            <button label="Delete" forward="gridGenres.onDelete(${each})"/>
+                        </row>
+                    </template>
+                </rows>
+                <foot>
+                    <footer span="3">
+                        <button id="btnAddGenre" label="Add"/>
+                        <label id="errAddGenre"/>
+                    </footer>
+                </foot>
+            </grid>
+        </groupbox>
+        <separator/>
+        <groupbox mold="3d" closable="true">
+            <caption label="Files"/>
+            <grid id="gridFiles" sizedByContent="false" span="true" mold="paging" pageSize="10" emptyMessage="No data">
+                <columns>
+                    <column label="No" width="35px"/>
+                    <column label="Quality" width="200px"/>
+                    <column label="File Name"/>
+                    <column label="Format" width="100px"/>
+                    <column label="Type" width="200px"/>
+                    <column label="Action" width="100px"/>
+                </columns>
+                <rows>
+                    <template name="model">
+                        <row>
+                            <label value="${forEachStatus.index+1}"/>
+                            <label value="${each.quality.key} / ${each.quality.value}"/>
+                            <label value="${each.fileName}"/>
+                            <label value="${each.format}"/>
+                            <label value="${each.type}"/>
+                            <button label="Delete" forward="gridFiles.onDelete(${each})"/>
+                        </row>
+                    </template>
+                </rows>
+                <foot>
+                    <footer span="3">
+                        <button id="btnAddFile" label="Add"/>
+                        <label id="errAddFile"/>
+                    </footer>
+                </foot>
+            </grid>
+        </groupbox>
+        <div align="center">
+            <separator/>
+            <button label="Submit" id="btnSubmit"/>
+            <button label="Close" id="btnClose"/>
+            <separator/>
+        </div>
+    </window>
+</zk>

@@ -1,0 +1,59 @@
+<?page id="workspace" title="Workspace"?>
+<?link rel="icon" type="image/png" href="/../images/favicon.png"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window border="none" apply="com.jeffrychristian.app.controller.ui.common.WorkspaceComposer" height="100%" width="100%">
+
+        <!-- Right Click Tab -->
+        <menupopup id="popupClose">
+            <menuitem id="menuRightTabClose" label="Close"/>
+            <menuitem id="menuRightTabCloseAll" label="Close All"/>
+            <menuitem id="menuRightTabCloseOther" label="Close Other"/>
+        </menupopup>
+        <!-- Header -->
+        <borderlayout>
+            <!--<north height="60px" border="none">-->
+                <!--<borderlayout>-->
+                <!--</borderlayout>-->
+            <!--</north>-->
+
+            <!-- Menu -->
+            <west splittable="true" width="15%" collapsible="true" border="none" title="Menu" flex="true" autoscroll="true">
+                <!-- Begin Menu -->
+                <tree id="treeMenu">
+                    <template name="model">
+                        <treeitem label="${each.title}" />
+                    </template>
+                </tree>
+                <!-- End Menu -->
+            </west>
+
+            <!-- Main -->
+            <center border="none" autoscroll="true">
+                <tabbox id="tabbox" height="100%">
+                    <tabs>
+                        <tab label="Dashboard" closable="false"/>
+                    </tabs>
+                    <tabpanels>
+                        <tabpanel style="overflow: auto">
+                            <include src="/WEB-INF/zul/dashboard.zul" />
+                        </tabpanel>
+                    </tabpanels>
+                </tabbox>
+            </center>
+            <!-- Footer -->
+            <south border="none" size="25px">
+                <borderlayout>
+                    <west border="none" style="padding: 5px 10px 0px 0px">
+                        Copyright 2016 &#169;
+                    </west>
+                    <east border="none" style="padding: 5px 10px 0px 0px">
+                        <div align="right">
+                            <label id="today"/>
+                        </div>
+                    </east>
+                </borderlayout>
+            </south>
+        </borderlayout>
+    </window>
+</zk>

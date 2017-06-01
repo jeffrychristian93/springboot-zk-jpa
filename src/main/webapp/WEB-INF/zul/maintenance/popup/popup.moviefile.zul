@@ -1,0 +1,37 @@
+<zk>
+    <window title="${labels.girointerest.title.popup}" border="normal" mode="modal" width="50%"
+            position="center"
+            apply="com.jeffrychristian.app.controller.ui.maintenance.popup.PopupAddMovieFileComposer" >
+        <grid>
+            <columns>
+                <column width="20%" />
+                <column />
+            </columns>
+            <rows>
+                <row>
+                    <label value="Video Quality"/>
+                    <combobox id="cbVideoQuality" placeholder="-- Please Select --" readonly="true">
+                        <template name="model">
+                            <comboitem label="${each.key} / ${each.value}"/>
+                        </template>
+                    </combobox>
+                </row>
+                <row>
+                    <label value="Movie File"/>
+                    <vlayout>
+                        <hbox>
+                            <button id="btnBrowseMovie" upload="true,maxsize=-1" label="Browse"/>
+                            <label id="lblFileMovieName" />
+                        </hbox>
+                    </vlayout>
+                </row>
+            </rows>
+        </grid>
+        <div align="center">
+            <separator />
+            <button id="btnSave" label="Save" />
+            <button id="btnClose" label="Close" />
+            <separator />
+        </div>
+    </window>
+</zk>

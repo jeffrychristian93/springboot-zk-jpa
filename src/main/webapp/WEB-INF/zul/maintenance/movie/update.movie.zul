@@ -1,0 +1,148 @@
+<?page id="index" title="Dashboard"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window border="none" apply="com.jeffrychristian.app.controller.ui.maintenance.movie.UpdateMovieComposer">
+        <groupbox mold="3d" closable="false">
+            <caption label="User login details"/>
+            <grid>
+                <columns visible="false">
+                    <column width="20%"/>
+                    <column width="80%"/>
+                </columns>
+                <rows>
+                    <row>
+                        <div>
+                            <label value="Username"/><label value="*" style="color:red"/>
+                        </div>
+                        <div>
+                            <textbox id="tbUsername" width="25%"/>
+                            <label id="lblErrUsername" style="color:red"/>
+                        </div>
+                    </row>
+                    <row>
+                        <div>
+                            <label value="Email"/><label value="*" style="color:red"/>
+                        </div>
+                        <div>
+                            <textbox id="tbEmail" width="25%"/>
+                            <label id="lblErrEmail" style="color:red"/>
+                        </div>
+                    </row>
+                    <row>
+                        <div>
+                            <label value="Password"/><label value="*" style="color:red"/>
+                        </div>
+                        <div>
+                            <textbox id="tbPassword" width="25%" type="password"/>
+                            <checkbox id="cbPassword" label="Visibility"/>
+                        </div>
+                    </row>
+                    <row>
+                        <div>
+                            <label value="Role"/><label value="*" style="color:red"/>
+                        </div>
+                        <radiogroup>
+                            <radio id="roleSuperAdmin" label="Super Admin" checked="true"/>
+                            <space/>
+                            <radio id="roleAdmin" label="Admin"/>
+                            <space/>
+                            <radio id="roleUser" label="User"/>
+                        </radiogroup>
+                    </row>
+                </rows>
+            </grid>
+        </groupbox>
+        <separator/>
+        <groupbox mold="3d" closable="false">
+            <caption label="User details"/>
+            <grid>
+                <columns>
+                    <column width="20%"/>
+                    <column width="80%"/>
+                </columns>
+                <rows>
+                    <row>
+                        <div>
+                            <label value="Firstname"/><label value="*" style="color:red"/>
+                        </div>
+                        <div>
+                            <textbox id="tbFirstname" width="25%"/>
+                            <label id="lblErrFirstname" style="color:red"/>
+                        </div>
+                    </row>
+                    <row>
+                        <label value="Lastname"/>
+                        <div>
+                            <textbox id="tbLastname" width="25%"/>
+                        </div>
+                    </row>
+                    <row>
+                        <div>
+                            <label value="Gender"/><label value="*" style="color:red"/>
+                        </div>
+                        <div>
+                            <radiogroup width="25%" id="radioGender">
+                                <radio selected="true" id="rdGenderMale" label="Male"/>
+                                <space/>
+                                <radio id="rdGenderFemale" label="Female"/>
+                            </radiogroup>
+                        </div>
+                    </row>
+                    <row>
+                        <label value="Mobile Phone"/>
+                        <div>
+                            <intbox id="ibMobilePhone" width="25%"/>
+                        </div>
+                    </row>
+                    <row>
+                        <label value="Bio"/>
+                        <div>
+                            <textbox id="tbBio" width="25%"/>
+                        </div>
+                    </row>
+                    <row>
+                        <label value="Profile Picture"/>
+                        <vlayout>
+                            <hbox>
+                                <button id="btnBrowse" upload="true,maxsize=-1" label="Browse"/>
+                                <label id="lblUploadFile" />
+                            </hbox>
+                            <image id="pics" />
+                        </vlayout>
+                    </row>
+                    <row>
+                        <label value="Active Status"/>
+                        <radiogroup>
+                            <radio id="radioActiveStatus" label="Active" checked="true"/>
+                            <space/>
+                            <radio id="radioInactiveStatus" label="Inactive"/>
+                        </radiogroup>
+                    </row>
+                    <row>
+                        <label value="Banned Status"/>
+                        <radiogroup>
+                            <radio id="radioUnbannedStatus" label="Unbanned" checked="true"/>
+                            <space/>
+                            <radio id="radioBannedStatus" label="Banned" disabled="true"/>
+                        </radiogroup>
+                    </row>
+                    <row>
+                        <label value="Special Status"/>
+                        <radiogroup>
+                            <radio id="radioOrdinaryStatus" label="Ordinary" checked="true"/>
+                            <space/>
+                            <radio id="radioSpecialStatus" label="Special"/>
+                        </radiogroup>
+                    </row>
+                </rows>
+            </grid>
+        </groupbox>
+        <div align="center">
+            <separator/>
+            <button label="Submit" id="btnSubmit"/>
+            <button label="Submit" id="btnSubmitForApproval"/>
+            <button label="Close" id="btnClose"/>
+            <separator/>
+        </div>
+    </window>
+</zk>
