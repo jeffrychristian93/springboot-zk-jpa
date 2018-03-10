@@ -2,14 +2,12 @@
 
 Contoh project spring dan zk framework.
 
-Project ini menggunakan teknologi 
+Tech stack: 
  - Back-End  :Spring boot
  - Front-End : ZK Framework
  - Database  : postgresql
  - Data access technologies : Spring data JPA
  - Project management : MAVEN
-
-**Di develop menggunakan IDE : IntelliJ IDEA
 
 Untuk menjalankan apliaksi :
 - Download project
